@@ -23,7 +23,7 @@ Follow these steps to run the project locally:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/quiz-app.git
+   git clone https://github.com/Ventaba/quiz-app.git
 Open the project in Android Studio.
 Sync Gradle to install dependencies.
 Run the app on an emulator or physical device.
