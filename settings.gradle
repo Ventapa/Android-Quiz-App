@@ -1,0 +1,19 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)  // ✅ Ensure repositories are preferred here
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "QuizApp"
+
+include ':app'

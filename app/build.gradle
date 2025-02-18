@@ -1,0 +1,67 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    compileSdk 34  // ✅ Match latest dependencies
+
+    namespace "com.example.quizapp"  // ✅ Required in AGP 8.0+
+
+    defaultConfig {
+        applicationId "com.example.quizapp"
+        minSdkVersion 21  
+        targetSdkVersion 34  // ✅ Ensure compatibility with dependencies
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true  
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.3'  // ✅ Ensure this matches your Compose version
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_16  // ✅ Ensure Java 17 support
+        targetCompatibility JavaVersion.VERSION_16
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"  // ✅ Ensure compatibility with AGP 8.0+
+    }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/*")  
+    }
+}
+
+dependencies {
+    // ✅ Kotlin Standard Library
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.10"  
+
+    // ✅ Jetpack Compose Dependencies (Ensure all versions match)
+    implementation "androidx.compose.ui:ui:1.6.0"
+    implementation "androidx.compose.material:material:1.6.0"
+    implementation "androidx.compose.ui:ui-tooling-preview:1.6.0"
+
+    // ✅ Material Design 3 (Latest version)
+    implementation "androidx.compose.material3:material3:1.2.0"
+    implementation 'com.google.android.material:material:1.11.0'
+
+    // ✅ Lifecycle & Activity Dependencies
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"
+    implementation "androidx.activity:activity-compose:1.8.0"
+}
+
+// ✅ Ensure no conflicts with older versions
+configurations.all {
+    resolutionStrategy.eachDependency { details ->
+        if (details.requested.group == "org.jetbrains.kotlin") {
+            details.useVersion "1.9.10"
+        }
+    }
+}
