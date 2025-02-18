@@ -27,3 +27,4 @@ Follow these steps to run the project locally:
 Open the project in Android Studio.
 Sync Gradle to install dependencies.
 Run the app on an emulator or physical device.
+
